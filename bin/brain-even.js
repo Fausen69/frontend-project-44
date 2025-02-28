@@ -1,21 +1,41 @@
-console.log('Answer "yes" if the number is even, otherwise answer "no".')
+#!/usr/bin/env node
+
+import readlineSync from 'readline-sync';
+
+import User from '../src/cli.js';
+
+const userName = User();
 
 const randomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const randomNum = randomNumber(1, 100);
-
-const even = (number) => {
-    return number % 2 === 0;
+const isEven = (number) => {
+return number % 2 === 0;
 }
 
-const question = 3;
-let correctAnswers = 0;
+const questions = 3;
+let score = 0;
 
-for (let i = 0; i < numberOfQuestions; i++) {
-    const questionNumber = randomNum();
-    console.log(`Question: ${questionNumber}`)
-    const userAnswer = readline.question('Your answer: ');
-    const correctAnswer = even(questionNumber) ? 'yes' : 'no';
+console.log('Answer "yes" if the number is even, otherwise answer "no".');
+
+for (let i = 0; i < questions; i++) {
+const questionNumber = randomNumber(1, 100);
+console.log(`Question: ${questionNumber}`);
+const userAnswer = readlineSync.question('Your answer: ');
+const correctAnswer = isEven(questionNumber) ? 'yes' : 'no';
+
+if (userAnswer.toLowerCase() === correctAnswer) {
+    console.log('Correct!');
+    score++;
+} else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    console.log(`Let's try again, ${userName}!`);
+    break;
+}
+
+}
+
+if (score === questions) {
+console.log(`Congratulations, ${userName}!`);
 }

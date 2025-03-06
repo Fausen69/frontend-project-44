@@ -20,22 +20,21 @@ let score = 0;
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 for (let i = 0; i < questions; i++) {
-const questionNumber = randomNumber(1, 100);
-console.log(`Question: ${questionNumber}`);
-const userAnswer = readlineSync.question('Your answer: ');
-const correctAnswer = isEven(questionNumber) ? 'yes' : 'no';
+    const questionNumber = randomNumber(1, 100);
+    console.log(`Question: ${questionNumber}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = isEven(questionNumber) ? 'yes' : 'no';
 
-if (userAnswer.toLowerCase() === correctAnswer) {
-    console.log('Correct!');
-    score++;
-} else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    console.log(`Let's try again, ${userName}!`);
-    break;
-}
-
+    if (userAnswer.toLowerCase() === correctAnswer) {
+        console.log('Correct!');
+        score++;
+    } else {
+        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+        console.log(`Let's try again, ${userName}!`);
+        break;
+    }
 }
 
 if (score === questions) {
-console.log(`Congratulations, ${userName}!`);
+    console.log(`Congratulations, ${userName}!`);
 }

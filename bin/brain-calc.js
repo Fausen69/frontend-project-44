@@ -41,8 +41,9 @@ for (let i = 0; i < questions; i++) {
 
     const userAnswer = readlineSync.question(`Question: ${num1} ${operation} ${num2}\nYour answer: `);
 
-    if (parse(userAnswer, 10) === correctAnswer) {
+    if (parseFloat(userAnswer) === parseFloat(correctAnswer)) {
         console.log('Correct!');
+        score++;
     } else {
         console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
         console.log(`Let's try again, ${userName}!`);

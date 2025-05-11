@@ -1,8 +1,5 @@
 #!/usr/bin/env node
+import playPrime from '../src/games/prime.js';
 
-import readlineSync from 'readline-sync';
-
-import User from '../src/cli.js';
-
-const userName = User();
+playPrime();
 

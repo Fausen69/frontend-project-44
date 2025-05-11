@@ -1,8 +1,4 @@
 #!/usr/bin/env node
+import playProgression from '../src/games/progression.js';
 
-import readlineSync from 'readline-sync';
-
-import User from '../src/cli.js';
-
-const userName = User();
-
+playProgression();

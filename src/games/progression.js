@@ -31,6 +31,7 @@ const getQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
+
 export default () => {
   playGame(gameRules, getQuestionAndAnswer);
 };
